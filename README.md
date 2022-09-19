@@ -11,7 +11,7 @@ Pengguna diharapkan dapat melakukan beberapa aksi berikut ini:
 ### Installation
 1. Clone repositori
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/kiputgalak/idn-test-app.git
    ```
 2. Install NPM packages
    ```sh
