@@ -6,10 +6,17 @@ interface News {
   readonly data: ReadonlyArray<Berita>
 }
 
-const useSWR = () => {
+interface Props {
+  readonly query: string
+}
+
+const useSWR = ({ query }: Props) => {
   const fetcher = async (url: string) =>
     await axios.get(url).then((res) => res.data)
-  const { data, error } = useNextSWR<News, Error>('/api/berita', fetcher)
+  const { data, error } = useNextSWR<News, Error>(
+    `/api/berita?s=${query}`,
+    fetcher
+  )
   return { data, loading: !data, error }
 }
 

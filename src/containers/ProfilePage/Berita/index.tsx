@@ -4,12 +4,14 @@ import ListArticle from 'components/ListArticle'
 import Stack from '@mui/material/Stack'
 import useSWR from './useSWR'
 import dynamic from 'next/dynamic'
+import useSelector from './useSelector'
 
 const Skeleton = dynamic(() => import('./Skeleton'))
 const ErrorView = dynamic(() => import('components/ErrorRequest'))
 
 const Berita: FC = () => {
-  const { data, loading, error } = useSWR()
+  const { query } = useSelector()
+  const { data, loading, error } = useSWR({ query })
 
   if (error) return <ErrorView />
   if (loading) return <Skeleton />

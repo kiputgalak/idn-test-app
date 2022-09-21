@@ -6,6 +6,7 @@ import Navigation from './Navigation'
 import type { NavigationProps } from './Navigation'
 import type { User } from 'common-types'
 import dynamic from 'next/dynamic'
+import Search from './Search'
 
 const Berita = dynamic(() => import('./Berita'))
 const Livestream = dynamic(() => import('./Livestream'))
@@ -28,6 +29,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ data }) => {
       <UserInfo user={data} />
       <Divider />
       <Navigation setActive={handleNavigation} active={tab} />
+      <Search tab={tab} />
       {tab === 'berita' && <Berita />}
       {tab === 'livestream' && <Livestream />}
       {tab === 'quiz' && <Quiz />}

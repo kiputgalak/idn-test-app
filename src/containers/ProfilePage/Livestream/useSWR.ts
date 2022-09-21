@@ -6,10 +6,17 @@ interface Data {
   readonly data: ReadonlyArray<Livestream>
 }
 
-const useSWR = () => {
+interface Props {
+  readonly query: string
+}
+
+const useSWR = ({ query }: Props) => {
   const fetcher = async (url: string) =>
     await axios.get(url).then((res) => res.data)
-  const { data, error } = useNextSWR<Data, Error>('/api/livestream', fetcher)
+  const { data, error } = useNextSWR<Data, Error>(
+    `/api/livestream?s=${query}`,
+    fetcher
+  )
   return { data, loading: !data, error }
 }
 

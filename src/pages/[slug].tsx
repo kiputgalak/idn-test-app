@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Page from 'containers/ArticleDetailPage'
 import { faker } from '@faker-js/faker'
 
-const ProfilePage: NextPage<SuccessProps<Berita>> = ({ data }) => {
+const DetailArticlePage: NextPage<SuccessProps<Berita>> = ({ data }) => {
   return (
     <>
       <Head>
@@ -36,4 +36,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return { props: { data } }
 }
 
-export default ProfilePage
+export default DetailArticlePage

@@ -4,12 +4,14 @@ import Container from 'components/Container'
 import Grid from '@mui/material/Grid'
 import useSWR from './useSWR'
 import dynamic from 'next/dynamic'
+import useSelector from './useSelector'
 
 const Skeleton = dynamic(() => import('./Skeleton'))
 const ErrorView = dynamic(() => import('components/ErrorRequest'))
 
 const Quiz: FC = () => {
-  const { data, loading, error } = useSWR()
+  const { query } = useSelector()
+  const { data, loading, error } = useSWR({ query })
 
   if (error) return <ErrorView />
   if (loading) return <Skeleton />

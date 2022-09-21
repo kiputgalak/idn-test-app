@@ -9,7 +9,7 @@ interface LinkComponentProps {
 
 const LinkComponent: FC<LinkComponentProps> = ({ href, children }) => {
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <MuiLink underline="none">{children}</MuiLink>
     </Link>
   )

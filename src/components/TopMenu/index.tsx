@@ -15,7 +15,9 @@ const TopMenuComponent: FC<TopMenuComponentProps> = ({ href }) => (
     <Container py={2} display="flex">
       <Box>
         <Link href={href || '/'} passHref>
-          <IconButton aria-label="Kembali" src="ic_angle_left" />
+          <a>
+            <IconButton aria-label="Kembali" src="ic_angle_left" />
+          </a>
         </Link>
       </Box>
       <Box flexGrow={1} />
